@@ -6,7 +6,7 @@ namespace Rukavishnikov\Php\Helper\Classes;
 
 use RuntimeException;
 
-final class FileHelper
+final class FileContentHelper
 {
     /**
      * @param string $fileFullName
