@@ -6,7 +6,7 @@ namespace Rukavishnikov\Php\Helper\Classes;
 
 final class RandStringGenerator
 {
-    const DEFAULT_CHARACTERS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const DEFAULT_CHARACTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
     /**
      * @param string $characters
