@@ -24,12 +24,13 @@ final class JsonHelper
 
     /**
      * @param string $data
+     * @param bool $associative
      * @return mixed
      */
-    public function decode(string $data): mixed
+    public function decode(string $data, bool $associative = false): mixed
     {
         try {
-            return @json_decode($data, false, 512, JSON_THROW_ON_ERROR);
+            return @json_decode($data, $associative, 512, JSON_THROW_ON_ERROR);
         } catch (JsonException $e) {
             throw new RuntimeException(sprintf("JSON decode error!\r\n\r\n%s", var_export($data, true)), 500, $e);
         }
