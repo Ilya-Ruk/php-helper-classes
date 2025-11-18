@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rukavishnikov\Php\Helper\Classes;
 
+use InvalidArgumentException;
 use RuntimeException;
 
 final class DirPath
@@ -45,10 +46,10 @@ final class DirPath
 
         if ($createIfNotExists) {
             if (@mkdir($dirPath, 0777, true) === false) {
-                throw new RuntimeException(sprintf("Create directory '%s' error!", $dirPath), 500);
+                throw new RuntimeException(sprintf("Create directory '%s' error!", $dirPath));
             }
         } else {
-            throw new RuntimeException(sprintf("Directory '%s' not exists!", $dirPath), 500);
+            throw new InvalidArgumentException(sprintf("Directory '%s' not exists!", $dirPath));
         }
     }
 }

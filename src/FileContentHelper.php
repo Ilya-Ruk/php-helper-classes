@@ -16,7 +16,7 @@ final class FileContentHelper
     public static function saveContent(string $fileFullName, string $content): void
     {
         if (@file_put_contents($fileFullName, $content, LOCK_EX) === false) {
-            throw new RuntimeException(sprintf("Save content to file '%s' error!", $fileFullName), 500);
+            throw new RuntimeException(sprintf("Save content to file '%s' error!", $fileFullName));
         }
     }
 
@@ -29,7 +29,7 @@ final class FileContentHelper
         $content = @file_get_contents($fileFullName);
 
         if ($content === false) {
-            throw new RuntimeException(sprintf("Load content from file '%s' error!", $fileFullName), 500);
+            throw new RuntimeException(sprintf("Load content from file '%s' error!", $fileFullName));
         }
 
         return $content;

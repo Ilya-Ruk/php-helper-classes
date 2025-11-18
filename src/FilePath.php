@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rukavishnikov\Php\Helper\Classes;
 
+use InvalidArgumentException;
 use RuntimeException;
 
 final class FilePath
@@ -56,15 +57,15 @@ final class FilePath
 
             if (!is_dir($dirPath)) {
                 if (@mkdir($dirPath, 0777, true) === false) {
-                    throw new RuntimeException(sprintf("Create directory '%s' error!", $dirPath), 500);
+                    throw new RuntimeException(sprintf("Create directory '%s' error!", $dirPath));
                 }
             }
 
             if (@touch($filePath) === false) {
-                throw new RuntimeException(sprintf("Create file '%s' error!", $filePath), 500);
+                throw new RuntimeException(sprintf("Create file '%s' error!", $filePath));
             }
         } else {
-            throw new RuntimeException(sprintf("File '%s' not exists!", $filePath), 500);
+            throw new InvalidArgumentException(sprintf("File '%s' not exists!", $filePath));
         }
     }
 }

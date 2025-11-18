@@ -18,7 +18,7 @@ final class JsonHelper
         try {
             return @json_encode($data, JSON_THROW_ON_ERROR);
         } catch (JsonException $e) {
-            throw new RuntimeException(sprintf("JSON encode error!\r\n\r\n%s", var_export($data, true)), 500, $e);
+            throw new RuntimeException(sprintf("JSON encode error!\r\n\r\n%s", var_export($data, true)), 0, $e);
         }
     }
 
@@ -32,7 +32,7 @@ final class JsonHelper
         try {
             return @json_decode($data, $associative, 512, JSON_THROW_ON_ERROR);
         } catch (JsonException $e) {
-            throw new RuntimeException(sprintf("JSON decode error!\r\n\r\n%s", var_export($data, true)), 500, $e);
+            throw new RuntimeException(sprintf("JSON decode error!\r\n\r\n%s", var_export($data, true)), 0, $e);
         }
     }
 }
