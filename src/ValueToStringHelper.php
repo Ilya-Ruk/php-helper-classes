@@ -22,7 +22,7 @@ final class ValueToStringHelper
         private string $closeTag = "]",
         private string $nameValueDelimiter = ": ",
         private string $paramDelimiter = ", ",
-        private string $lastParamDelimiter = ""
+        private string $lastParamDelimiter = "",
     ) {
     }
 

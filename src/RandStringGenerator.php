@@ -12,7 +12,7 @@ final class RandStringGenerator
      * @param string $characters
      */
     public function __construct(
-        private string $characters = self::DEFAULT_CHARACTERS
+        private string $characters = self::DEFAULT_CHARACTERS,
     ) {
     }
 
