@@ -52,20 +52,20 @@ final class FilePath
             return;
         }
 
-        if ($createIfNotExists) {
-            $dirPath = dirname($filePath);
-
-            if (!is_dir($dirPath)) {
-                if (@mkdir($dirPath, 0777, true) === false) {
-                    throw new RuntimeException(sprintf("Create directory '%s' error!", $dirPath));
-                }
-            }
-
-            if (@touch($filePath) === false) {
-                throw new RuntimeException(sprintf("Create file '%s' error!", $filePath));
-            }
-        } else {
+        if (!$createIfNotExists) {
             throw new InvalidArgumentException(sprintf("File '%s' not exists!", $filePath));
+        }
+
+        $dirPath = dirname($filePath);
+
+        if (!is_dir($dirPath)) {
+            if (@mkdir($dirPath, 0777, true) === false) {
+                throw new RuntimeException(sprintf("Create directory '%s' error!", $dirPath));
+            }
+        }
+
+        if (@touch($filePath) === false) {
+            throw new RuntimeException(sprintf("Create file '%s' error!", $filePath));
         }
     }
 }

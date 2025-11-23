@@ -44,12 +44,12 @@ final class DirPath
             return;
         }
 
-        if ($createIfNotExists) {
-            if (@mkdir($dirPath, 0777, true) === false) {
-                throw new RuntimeException(sprintf("Create directory '%s' error!", $dirPath));
-            }
-        } else {
+        if (!$createIfNotExists) {
             throw new InvalidArgumentException(sprintf("Directory '%s' not exists!", $dirPath));
+        }
+
+        if (@mkdir($dirPath, 0777, true) === false) {
+            throw new RuntimeException(sprintf("Create directory '%s' error!", $dirPath));
         }
     }
 }
