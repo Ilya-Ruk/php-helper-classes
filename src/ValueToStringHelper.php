@@ -47,7 +47,7 @@ final class ValueToStringHelper
         }
 
         if (is_bool($value)) {
-            return ($value) ? 'true' : 'false';
+            return $value ? 'true' : 'false';
         }
 
         if (is_int($value) || is_float($value) || is_string($value) || ($value instanceof Stringable)) {
