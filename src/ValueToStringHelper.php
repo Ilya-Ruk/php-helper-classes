@@ -59,7 +59,7 @@ final class ValueToStringHelper
         }
 
         if (is_object($value)) {
-            return '[object]'; // TODO: return $this->arrayToStringInternal((array)$value);
+            return '[object]';
         }
 
         if (is_resource($value)) {
